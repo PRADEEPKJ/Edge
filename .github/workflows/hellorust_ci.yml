@@ -11,13 +11,15 @@ env:
 
 jobs:
   build:
-
-    runs-on: ubuntu-latest
-    #runs-on: self-hosted
-  defaults:
-    run:
-      working-directory: ./tests/testlib
-
+    #runs-on: ubuntu-latest
+    runs-on: self-hosted
+    strategy:
+      max-parallel: 3
+    
+      #test 123343
+    defaults:
+      run:
+        working-directory: ./testlib
     steps:
     - uses: actions/checkout@v2
     - name: Format
@@ -31,5 +33,5 @@ jobs:
     - name: 'Upload Artifact'
       uses: actions/upload-artifact@v2
       with:
-          name:libtestlib.rlib 
-          path:tests/testlib/target/release/libtestlib.rlib 
+          name: libtestlib.rlib 
+          path: testlib/target/release/libtestlib.rlib 
