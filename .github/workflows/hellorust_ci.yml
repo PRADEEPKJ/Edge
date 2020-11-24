@@ -11,16 +11,11 @@ env:
 
 jobs:
   build:
-    #runs-on: ubuntu-latest
-    runs-on: self-hosted
-    strategy:
-      max-parallel: 3
-    
-      #test 123343
-    defaults:
+   runs-on: ubuntu-latest
+   defaults:
       run:
         working-directory: ./testlib
-    steps:
+   steps:
     - uses: actions/checkout@v2
     - name: Format
       run: cargo fmt
