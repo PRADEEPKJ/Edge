@@ -14,7 +14,7 @@ jobs:
    runs-on: ubuntu-latest
    defaults:
       run:
-        working-directory: ./testlib
+        working-directory: ./tests/testlib
    steps:
     - uses: actions/checkout@v2
     - name: Format
@@ -29,4 +29,4 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
           name: libtestlib.rlib 
-          path: testlib/target/release/libtestlib.rlib 
+          path: tests/testlib/target/release/libtestlib.rlib 
